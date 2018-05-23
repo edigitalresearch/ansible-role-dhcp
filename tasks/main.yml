@@ -1,0 +1,15 @@
+---
+  - name: DHCP | Install DHCP Server
+    yum:
+      name: dhcp
+      state: present
+
+  - name: DHCP | Write configuration file
+    template:
+      src: dhcpd.conf.j2
+      dest: /etc/dhcp/dhcpd.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify: reload-dhcpd
+    with_dict: "{{ dhcpd }}"

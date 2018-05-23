@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Lewis Carhart
+  description: Ansible Role for DHCP
+  company: Maru EDR
+  license: MIT
+  min_ansible_version: 2.5.3
+  platforms:
+  - name: CentOS
+    versions:
+    - all
+  galaxy_tags:
+    - maru
+    - installer
+    - dhcp

@@ -1,0 +1,28 @@
+# dhcpd.conf
+# This template is managed by ansible, manual changes will be overwritten.
+# You've had your warning, mortal.
+
+ddns-update-style interim;
+# Lease times
+option domain-name "{{ dhcpd.globals.options.domainname }}"
+default-lease-time {{ dhcpd.globals.other.defaultleasetime}};
+max-lease-time {{ dhcpd.globals.other.maxleasetime}};
+authoritative;
+
+{% for subnet in dhcpd.subnets %}
+
+subnet {{ subnet.ip }} netmask {{ subnet.netmask }} {
+{% if subnet.options is defined %}
+{% for option in subnet.options %}
+option {{ option }} {{ subnet.options[option] }};
+{% endfor %}
+{% endif %}
+
+{% if subnet.ranges is defined %}
+{% for range in subnet.ranges %}
+range {{ range }};
+{% endfor %}
+{% endif %}
+}
+
+{% endfor %}

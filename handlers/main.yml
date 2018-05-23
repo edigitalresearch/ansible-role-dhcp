@@ -1,0 +1,10 @@
+---
+  - name: reload-dhcpd
+    service:
+      name: dhcpd
+      state: reloaded
+
+  - name: start-dhcpd
+    service:
+      name: dhcpd
+      state: started

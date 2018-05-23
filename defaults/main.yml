@@ -1,0 +1,8 @@
+dhcpd:
+  globals:
+    options:
+      domainname: "default.domain"
+    other:
+      defaultleasetime: 600
+      maxleasetime: 7200
+      authoritative: true
