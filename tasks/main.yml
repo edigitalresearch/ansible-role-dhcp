@@ -3,6 +3,8 @@
     yum:
       name: dhcp
       state: present
+      enabled: yes
+
 
   - name: DHCP | Write configuration file
     template:
