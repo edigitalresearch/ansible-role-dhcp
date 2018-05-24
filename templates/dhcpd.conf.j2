@@ -5,8 +5,8 @@
 ddns-update-style interim;
 # Lease times
 option domain-name "{{ dhcpd.globals.options.domainname }}"
-default-lease-time {{ dhcpd.globals.other.defaultleasetime}};
-max-lease-time {{ dhcpd.globals.other.maxleasetime}};
+default-lease-time {{ dhcpd.globals.options.defaultleasetime}};
+max-lease-time {{ dhcpd.globals.options.maxleasetime}};
 authoritative;
 
 {% for subnet in dhcpd.subnets %}
