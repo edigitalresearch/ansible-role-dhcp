@@ -3,8 +3,6 @@
     yum:
       name: dhcp
       state: present
-      enabled: yes
-
 
   - name: DHCP | Write configuration file
     template:
@@ -15,3 +13,8 @@
       mode: 0644
     notify: reload-dhcpd
     with_dict: "{{ dhcpd }}"
+
+  - name: DHCP | Enable DHCP on startup
+    systemd:
+      name: dhcpd
+      enabled: yes
