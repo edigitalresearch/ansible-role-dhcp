@@ -8,7 +8,7 @@ galaxy_info:
   platforms:
   - name: CentOS
     versions:
-    - all
+    - 7
   galaxy_tags:
     - maru
     - installer
